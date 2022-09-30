@@ -71,6 +71,8 @@ void test_timer_once_cb(void *arg) {
 /***********************************************/
 void app_main(void)
 {
+    esp_timer_init();// 使用定时器API函数，先调用接口初始化,(未调用此函数时，使用不受影响，不知为何)：原因：只需要再启动代码中调用此函数，使用其它esp_timer API不需要调用此函数
+
     gpio_pad_select_gpio(GPIO_NUM_16);
     gpio_set_direction(GPIO_NUM_16,GPIO_MODE_OUTPUT);
 
